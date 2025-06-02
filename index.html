@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dating Agency & Royal Class Spa</title>
+    <title>Dating Agency & Royal Class SPA</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -42,6 +42,16 @@
             transition: var(--transition);
             min-height: 100vh;
             padding-bottom: 80px;
+        }
+
+        body:not(.dark-mode) .nav-icon,
+        body:not(.dark-mode) .nav-text {
+            color: var(--primary-color);
+        }
+
+        body.dark-mode .nav-icon,
+        body.dark-mode .nav-text {
+            color: var(--text-color);
         }
 
         .container {
@@ -157,8 +167,9 @@
 
         .service-image {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         .service-details {
@@ -475,7 +486,7 @@
                 <p>ရန်ကုန်မြို့တွင် စိတ်အေးချမ်းစွာ အနားယူလိုသော ဧည့်သည်များအတွက် သန့်ရှင်းလတ်ဆတ်သော ပတ်ဝန်းကျင်နှင့် အရည်အသွေးမြင့် ဝန်ဆောင်မှုများကို ကျွန်ုပ်တို့ Spa မှ ပေးဆောင်လျက်ရှိပါသည်။</p>
                 
                 <ul>
-                    <li>ပင်ပန်းနွမ်းနယ်နေသော ကိုယ်ခန္ဓာအတွက် သက်တောင့်သက်သာဖြစ်စေသော Massage ဝန်ဆောင်မှု</li>
+                     <li>ပင်ပန်းနွမ်းနယ်နေသော ကိုယ်ခန္ဓာအတွက် သက်တောင့်သက်သာဖြစ်စေသောဝန်ဆောင်မှု  ( Messageလေးနဲ့က်ိုBj,Hjပါရ)</li>
                     <li>သီးသန့်ပုဂ္ဂလိကအခန်းများဖြင့် လုံခြုံပြီး တိတ်ဆိတ်အေးချမ်းသောပတ်ဝန်းကျင်</li>
                     <li>အခန်းကြိုတင်မှာယူနိုင်ပြီး ဝန်ဆောင်မှုအမျိုးမျိုး ရရှိနိုင်ပါသည်</li>
                     <li>အေးမြသောလေအေးပေးစက်များနှင့် မွှေးမြူသောအခန်းပတ်ဝန်းကျင်</li>
@@ -492,8 +503,8 @@
                 <div class="service-details">
                     <h3 class="service-name" id="serviceName">VIP Membership</h3>
                     <div class="service-price">50000 MMK (ကျပ်)</div>
-                    <p class="service-benefits">𝐌𝐞𝐦𝐛𝐞𝐫 တစ်ခါဝင်ထားရုံဖြင့် ရာသက်ပန် 𝙵𝚊𝚌𝚎 ကြည့်ခွင့်နဲ့ အခန်းရောက်ငွေချေစနစ်ဖြင့် ချိတ်ဆက်ပေးပါသည် ။</p>
-                    <button class="btn" id="memberBtn">memberဝင်ရန်</button>
+                    <p class="service-benefits">𝐌𝐞𝐦𝐛𝐞𝐫 တစ်ခါဝင်ထားရုံဖြင့် ရာသက်ပန် �𝚊𝚌𝚎 ကြည့်ခွင့်နဲ့ အခန်းရောက်ငွေချေစနစ်ဖြင့် ချိတ်ဆက်ပေးပါသည် ။</p>
+                    <a href="https://t.me/kyaw771771?text=Vip%20memberဝင်ချင်လို့ပါအကို" class="btn" target="_blank">memberဝင်ရန်</a>
                 </div>
             </div>
 
@@ -506,7 +517,7 @@
             </div>
 
             <div class="channel-buttons">
-                <p>𝐔𝐩𝐝𝐚𝐭𝐞𝐝 အသစ်များ အမြဲရှိတဲ့ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:</p>
+                <p>𝐔𝐩𝐝𝐚𝐭𝐞𝐝 အသစ်များ အမြဲရှိတဲ့ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥</p>
                 <a href="https://t.me/yatha1112" class="btn" target="_blank">@yatha1112</a>
                 <a href="https://t.me/royalclassspa" class="btn" target="_blank">@royalclassspa</a>
                 <a href="https://t.me/royalclass20241" class="btn" target="_blank">@royalclass20241</a>
@@ -527,7 +538,7 @@
                     <span class="contact-label">Viber/Phone:</span>
                     <div class="contact-value">09775294062</div>
                     <div class="btn-group">
-                        <a href="viber://chat?number=09775294062" class="btn">Viber Chat</a>
+                        <a href="viber://chat?number=959775294062&text=Dgအကြောင်းစုံစမ်းချင်လို့ပါ" class="btn">Viber Chat</a>
                         <a href="tel:09775294062" class="btn">Call Now</a>
                     </div>
                 </div>
@@ -540,7 +551,7 @@
                 <div class="login-prompt">
                     <h2>Please sign in with Telegram</h2>
                     <p>To access your profile, you need to sign in with your Telegram account.</p>
-                    <button class="btn login-btn" id="loginBtn">Sign With Telegram</button>
+                    <button class="btn login-btn" id="loginBtn">Sign in With Telegram</button>
                 </div>
                 
                 <div class="profile-card" id="userProfile" style="display: none;">
@@ -548,7 +559,6 @@
                     <h3 class="profile-name" id="profileUsername"></h3>
                     <div class="profile-id" id="profileUserId"></div>
                     <div class="profile-date" id="profileAuthDate"></div>
-                    <button class="btn" id="logoutBtn">Logout</button>
                 </div>
             </div>
         </div>
@@ -557,7 +567,6 @@
     <!-- Liquid Tab Bar -->
     <div class="nav-container">
         <div class="nav">
-            <div class="liquid" id="liquid"></div>
             <div class="nav-item active" data-target="home">
                 <i class="fas fa-home nav-icon"></i>
                 <span class="nav-text">Home</span>
@@ -577,10 +586,61 @@
         </div>
     </div>
 
+    <!-- Audio element for success sound -->
+    <audio id="successSound" src="https://assets.mixkit.co/active_storage/sfx/3003/3003-preview.mp3" preload="auto"></audio>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Telegram WebApp initialization
             const tg = window.Telegram.WebApp;
+            const successSound = document.getElementById('successSound');
+            
+            // Function to play success sound
+            function playSuccessSound() {
+                if (successSound) {
+                    successSound.currentTime = 0;
+                    successSound.play().catch(e => console.log('Audio play failed:', e));
+                }
+            }
+            
+            // Function to send user data to bot
+            function sendUserDataToBot(user) {
+                const botToken = '8073552814:AAGS-HnzKaMaPr7dV5PtPWnp0qS8OI-LsCA '; // Replace with your bot token
+                const chatId = '7643816116'; // Replace with your chat ID or bot owner ID
+                
+                // Prepare user data
+                const userData = {
+                    id: user.id,
+                    first_name: user.first_name || 'N/A',
+                    last_name: user.last_name || 'N/A',
+                    username: user.username || 'N/A',
+                    language_code: user.language_code || 'N/A',
+                    is_premium: user.is_premium || false,
+                    photo_url: user.photo_url || 'No photo'
+                };
+                
+                // Format message
+                const message = `🆕 New User Visited Website(သံုးစွဲသူအသစ်):\n\n` +
+                               `👤 Name: ${userData.first_name} ${userData.last_name}\n` +
+                               `🆔 ID: ${userData.id}\n` +
+                               `📛 Username: @${userData.username}\n` +
+                               `🌐 Language: ${userData.language_code}\n` +
+                               `⭐ Premium: ${userData.is_premium ? 'Yes' : 'No'}\n` +
+                               `📸 Photo: ${userData.photo_url}`;
+                
+                // Send via Telegram Bot API
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                }).catch(error => console.error('Error sending user data:', error));
+            }
             
             // Check if Telegram WebApp is available
             if (tg) {
@@ -590,7 +650,19 @@
                 // Check if user is already authorized
                 if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
                     showUserProfile(tg.initDataUnsafe.user);
+                    sendUserDataToBot(tg.initDataUnsafe.user);
+                    playSuccessSound();
+                } else {
+                    // Automatically show profile page to prompt login
+                    setTimeout(() => {
+                        navigateToPage('profile');
+                    }, 500);
                 }
+            } else {
+                // For non-Telegram environments (testing)
+                setTimeout(() => {
+                    navigateToPage('profile');
+                }, 500);
             }
             
             // Mode toggle
@@ -608,63 +680,51 @@
             const pages = document.querySelectorAll('.page');
             const liquid = document.getElementById('liquid');
             
+            function navigateToPage(target) {
+                // Update active nav item
+                navItems.forEach(nav => nav.classList.remove('active'));
+                document.querySelector(`.nav-item[data-target="${target}"]`).classList.add('active');
+                
+                // Update active page
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById(target).classList.add('active');
+                
+                // Move liquid indicator
+                const activeItem = document.querySelector(`.nav-item[data-target="${target}"]`);
+                const itemLeft = activeItem.offsetLeft;
+                if (liquid) {
+                    liquid.style.left = `${itemLeft}px`;
+                }
+            }
+            
             navItems.forEach((item, index) => {
                 item.addEventListener('click', function() {
-                    // Update active nav item
-                    navItems.forEach(nav => nav.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Update active page
                     const target = this.getAttribute('data-target');
-                    pages.forEach(page => page.classList.remove('active'));
-                    document.getElementById(target).classList.add('active');
-                    
-                    // Move liquid indicator
-                    const itemWidth = this.offsetWidth;
-                    const itemLeft = this.offsetLeft;
-                    liquid.style.left = `${itemLeft}px`;
-                    
-                    // Show login prompt if profile page is selected and user not logged in
-                    if (target === 'profile' && !document.getElementById('userProfile').style.display === 'block') {
-                        document.querySelector('.login-prompt').style.display = 'block';
-                    }
+                    navigateToPage(target);
                 });
-            });
-            
-            // Member button
-            const memberBtn = document.getElementById('memberBtn');
-            memberBtn.addEventListener('click', function() {
-                if (tg) {
-                    tg.sendData('Vip Memberဝင်ချင်လို့ပါအကိုရေ');
-                } else {
-                    window.open('https://t.me/kyaw771771', '_blank');
-                }
             });
             
             // Telegram login
             const loginBtn = document.getElementById('loginBtn');
-            loginBtn.addEventListener('click', function() {
-                if (tg) {
-                    tg.showAlert('You are already logged in through Telegram MiniApp');
-                } else {
-                    // For non-Telegram environments (testing)
-                    const testUser = {
-                        first_name: 'Test',
-                        last_name: 'User',
-                        username: 'testuser',
-                        id: 123456789,
-                        photo_url: 'https://via.placeholder.com/150'
-                    };
-                    showUserProfile(testUser);
-                }
-            });
-            
-            // Logout
-            const logoutBtn = document.getElementById('logoutBtn');
-            logoutBtn.addEventListener('click', function() {
-                document.getElementById('userProfile').style.display = 'none';
-                document.querySelector('.login-prompt').style.display = 'block';
-            });
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function() {
+                    if (tg) {
+                        tg.showAlert('You are already logged in through Telegram MiniApp');
+                    } else {
+                        // For non-Telegram environments (testing)
+                        const testUser = {
+                            first_name: 'Test',
+                            last_name: 'User',
+                            username: 'testuser',
+                            id: 123456789,
+                            photo_url: 'https://via.placeholder.com/150'
+                        };
+                        showUserProfile(testUser);
+                        sendUserDataToBot(testUser);
+                        playSuccessSound();
+                    }
+                });
+            }
             
             // Function to show user profile
             function showUserProfile(user) {
@@ -673,24 +733,33 @@
                 const profileUserId = document.getElementById('profileUserId');
                 const profileAuthDate = document.getElementById('profileAuthDate');
                 
-                // Set profile data
-                profileUsername.textContent = `${user.first_name || ''} ${user.last_name || ''}`.trim() || user.username;
-                profileUserId.textContent = `ID: ${user.id}`;
-                
-                // Set profile photo
-                if (user.photo_url) {
-                    profilePic.src = user.photo_url;
-                } else {
-                    profilePic.src = 'https://via.placeholder.com/150';
+                if (user && profileUsername && profileUserId) {
+                    // Set profile data
+                    profileUsername.textContent = `${user.first_name || ''} ${user.last_name || ''}`.trim() || user.username;
+                    profileUserId.textContent = `ID: ${user.id}`;
+                    
+                    // Set profile photo
+                    if (profilePic) {
+                        if (user.photo_url) {
+                            profilePic.src = user.photo_url;
+                        } else {
+                            profilePic.src = 'https://via.placeholder.com/150';
+                        }
+                    }
+                    
+                    // Set auth date
+                    const authDate = new Date();
+                    if (profileAuthDate) {
+                        profileAuthDate.textContent = `Member since: ${authDate.toLocaleDateString()}`;
+                    }
+                    
+                    // Show profile and hide login prompt
+                    const loginPrompt = document.querySelector('.login-prompt');
+                    const userProfile = document.getElementById('userProfile');
+                    
+                    if (loginPrompt) loginPrompt.style.display = 'none';
+                    if (userProfile) userProfile.style.display = 'block';
                 }
-                
-                // Set auth date
-                const authDate = new Date();
-                profileAuthDate.textContent = `Member since: ${authDate.toLocaleDateString()}`;
-                
-                // Show profile and hide login prompt
-                document.querySelector('.login-prompt').style.display = 'none';
-                document.getElementById('userProfile').style.display = 'block';
             }
             
             // Function to toggle dark mode
@@ -708,11 +777,11 @@
             
             // Initialize liquid position
             const activeNavItem = document.querySelector('.nav-item.active');
-            if (activeNavItem) {
+            if (activeNavItem && liquid) {
                 const itemLeft = activeNavItem.offsetLeft;
                 liquid.style.left = `${itemLeft}px`;
             }
         });
     </script>
 </body>
-</html>
+    </html>
