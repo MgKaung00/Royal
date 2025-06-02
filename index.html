@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dating Agency & Royal Class Spa</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #233A66;
+            --secondary-color: #D7A859;
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --card-bg: #fff;
+            --nav-bg: #fff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --primary-color: #D7A859;
+            --secondary-color: #233A66;
+            --text-color: #f0f0f0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --nav-bg: #1a1a1a;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-top: 40px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(35, 58, 102, 0.5);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(215, 168, 89, 0.8);
+            }
+        }
+
+        .mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .mode-toggle:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Home Page */
+        .home-content {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .home-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .home-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .home-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .home-content li {
+            margin-bottom: 8px;
+        }
+
+        /* View Page */
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-details {
+            padding: 15px;
+        }
+
+        .service-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .service-price {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .service-benefits {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.03);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .channel-card {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 15px;
+        }
+
+        .channel-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .channel-info {
+            flex: 1;
+        }
+
+        .channel-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .channel-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .channel-link {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .channel-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        /* Contact Page */
+        .contact-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin-bottom: 15px;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .contact-value {
+            margin-bottom: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        /* Profile Page */
+        .profile-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .profile-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .profile-id {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .profile-date {
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .login-prompt {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .login-btn {
+            margin-top: 20px;
+        }
+
+        /* Liquid Tab Bar */
+        .nav-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--nav-bg);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .nav-text {
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-top: 5px;
+            color: var(--text-color);
+            opacity: 0;
+            transition: var(--transition);
+            position: absolute;
+            bottom: 5px;
+        }
+
+        .nav-item.active .nav-icon {
+            color: var(--primary-color);
+            transform: translateY(-10px);
+        }
+
+        .nav-item.active .nav-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .liquid {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .liquid::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--nav-bg);
+            border-radius: 50%;
+        }
+
+        .liquid::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--nav-bg);
+            border-radius: 50%;
+        }
+
+        /* Heart Icon */
+        .fa-heart {
+            color: #ff4757;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .home-content, .service-card, .contact-card, .profile-card {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .nav-item {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .liquid {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Dating Agency & Royal Class Spa</div>
+            <button class="mode-toggle" id="modeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+
+        <!-- Home Page -->
+        <div class="page active" id="home">
+            <div class="home-content">
+                <h2>ရန်ကုန်မြို့တွင် စိတ်အပန်းဖြေ Spa & Relaxation ဝန်ဆောင်မှု</h2>
+                <p>ရန်ကုန်အတွင်း Dategirlများစွာကို hotalအရောက်ပို့ လူတွေ့ငွေရှင်း</p>
+                
+                <p>ရန်ကုန်မြို့တွင် စိတ်အေးချမ်းစွာ အနားယူလိုသော ဧည့်သည်များအတွက် သန့်ရှင်းလတ်ဆတ်သော ပတ်ဝန်းကျင်နှင့် အရည်အသွေးမြင့် ဝန်ဆောင်မှုများကို ကျွန်ုပ်တို့ Spa မှ ပေးဆောင်လျက်ရှိပါသည်။</p>
+                
+                <ul>
+                    <li>ပင်ပန်းနွမ်းနယ်နေသော ကိုယ်ခန္ဓာအတွက် သက်တောင့်သက်သာဖြစ်စေသော Massage ဝန်ဆောင်မှု</li>
+                    <li>သီးသန့်ပုဂ္ဂလိကအခန်းများဖြင့် လုံခြုံပြီး တိတ်ဆိတ်အေးချမ်းသောပတ်ဝန်းကျင်</li>
+                    <li>အခန်းကြိုတင်မှာယူနိုင်ပြီး ဝန်ဆောင်မှုအမျိုးမျိုး ရရှိနိုင်ပါသည်</li>
+                    <li>အေးမြသောလေအေးပေးစက်များနှင့် မွှေးမြူသောအခန်းပတ်ဝန်းကျင်</li>
+                </ul>
+                
+                <p>ကျွန်ုပ်တို့ Spa သည် Condo တစ်ခုအတွင်း တည်ရှိပြီး သန့်ရှင်းမှု၊ လုံခြုံမှုကိုအပြည့်အဝ ဂရုစိုက်ထားပါသည်။</p>
+            </div>
+        </div>
+
+        <!-- View Page -->
+        <div class="page" id="view">
+            <div class="service-card">
+                <img src="promo.png" alt="Service" class="service-image" id="serviceImage">
+                <div class="service-details">
+                    <h3 class="service-name" id="serviceName">VIP Membership</h3>
+                    <div class="service-price">50000 MMK (ကျပ်)</div>
+                    <p class="service-benefits">𝐌𝐞𝐦𝐛𝐞𝐫 တစ်ခါဝင်ထားရုံဖြင့် ရာသက်ပန် 𝙵𝚊𝚌𝚎 ကြည့်ခွင့်နဲ့ အခန်းရောက်ငွေချေစနစ်ဖြင့် ချိတ်ဆက်ပေးပါသည် ။</p>
+                    <button class="btn" id="memberBtn">memberဝင်ရန်</button>
+                </div>
+            </div>
+
+            <div class="channel-card">
+                <img src="channel1.png" alt="Channel" class="channel-image" id="channelImage">
+                <div class="channel-info">
+                    <div class="channel-name">Linkပေါင်းစုံစုစည်းမှု</div>
+                    <a href="https://t.me/freelink813" class="btn" target="_blank">Joinရန်</a>
+                </div>
+            </div>
+
+            <div class="channel-buttons">
+                <p>𝐔𝐩𝐝𝐚𝐭𝐞𝐝 အသစ်များ အမြဲရှိတဲ့ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:</p>
+                <a href="https://t.me/yatha1112" class="btn" target="_blank">@yatha1112</a>
+                <a href="https://t.me/royalclassspa" class="btn" target="_blank">@royalclassspa</a>
+                <a href="https://t.me/royalclass20241" class="btn" target="_blank">@royalclass20241</a>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div class="page" id="contact">
+            <div class="contact-card">
+                <h2>Contact Us</h2>
+                <div class="contact-item">
+                    <span class="contact-label">Telegram Admin:</span>
+                    <div class="contact-value">@kyaw771771</div>
+                    <a href="https://t.me/kyaw771771" class="btn" target="_blank">Message on Telegram</a>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-label">Viber/Phone:</span>
+                    <div class="contact-value">09775294062</div>
+                    <div class="btn-group">
+                        <a href="viber://chat?number=09775294062" class="btn">Viber Chat</a>
+                        <a href="tel:09775294062" class="btn">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div class="page" id="profile">
+            <div id="profileContent">
+                <div class="login-prompt">
+                    <h2>Please sign in with Telegram</h2>
+                    <p>To access your profile, you need to sign in with your Telegram account.</p>
+                    <button class="btn login-btn" id="loginBtn">Sign With Telegram</button>
+                </div>
+                
+                <div class="profile-card" id="userProfile" style="display: none;">
+                    <img src="" alt="Profile Photo" class="profile-pic" id="profilePic">
+                    <h3 class="profile-name" id="profileUsername"></h3>
+                    <div class="profile-id" id="profileUserId"></div>
+                    <div class="profile-date" id="profileAuthDate"></div>
+                    <button class="btn" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Liquid Tab Bar -->
+    <div class="nav-container">
+        <div class="nav">
+            <div class="liquid" id="liquid"></div>
+            <div class="nav-item active" data-target="home">
+                <i class="fas fa-home nav-icon"></i>
+                <span class="nav-text">Home</span>
+            </div>
+            <div class="nav-item" data-target="view">
+                <i class="fas fa-heart nav-icon"></i>
+                <span class="nav-text">View</span>
+            </div>
+            <div class="nav-item" data-target="contact">
+                <i class="fas fa-phone-alt nav-icon"></i>
+                <span class="nav-text">Contact</span>
+            </div>
+            <div class="nav-item" data-target="profile">
+                <i class="fas fa-user nav-icon"></i>
+                <span class="nav-text">Profile</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Telegram WebApp initialization
+            const tg = window.Telegram.WebApp;
+            
+            // Check if Telegram WebApp is available
+            if (tg) {
+                tg.expand(); // Expand the WebApp to full screen
+                tg.enableClosingConfirmation(); // Enable closing confirmation
+                
+                // Check if user is already authorized
+                if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+                    showUserProfile(tg.initDataUnsafe.user);
+                }
+            }
+            
+            // Mode toggle
+            const modeToggle = document.getElementById('modeToggle');
+            modeToggle.addEventListener('click', toggleDarkMode);
+            
+            // Check for saved mode preference
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                modeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            
+            // Page navigation
+            const navItems = document.querySelectorAll('.nav-item');
+            const pages = document.querySelectorAll('.page');
+            const liquid = document.getElementById('liquid');
+            
+            navItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    // Update active nav item
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update active page
+                    const target = this.getAttribute('data-target');
+                    pages.forEach(page => page.classList.remove('active'));
+                    document.getElementById(target).classList.add('active');
+                    
+                    // Move liquid indicator
+                    const itemWidth = this.offsetWidth;
+                    const itemLeft = this.offsetLeft;
+                    liquid.style.left = `${itemLeft}px`;
+                    
+                    // Show login prompt if profile page is selected and user not logged in
+                    if (target === 'profile' && !document.getElementById('userProfile').style.display === 'block') {
+                        document.querySelector('.login-prompt').style.display = 'block';
+                    }
+                });
+            });
+            
+            // Member button
+            const memberBtn = document.getElementById('memberBtn');
+            memberBtn.addEventListener('click', function() {
+                if (tg) {
+                    tg.sendData('Vip Memberဝင်ချင်လို့ပါအကိုရေ');
+                } else {
+                    window.open('https://t.me/kyaw771771', '_blank');
+                }
+            });
+            
+            // Telegram login
+            const loginBtn = document.getElementById('loginBtn');
+            loginBtn.addEventListener('click', function() {
+                if (tg) {
+                    tg.showAlert('You are already logged in through Telegram MiniApp');
+                } else {
+                    // For non-Telegram environments (testing)
+                    const testUser = {
+                        first_name: 'Test',
+                        last_name: 'User',
+                        username: 'testuser',
+                        id: 123456789,
+                        photo_url: 'https://via.placeholder.com/150'
+                    };
+                    showUserProfile(testUser);
+                }
+            });
+            
+            // Logout
+            const logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', function() {
+                document.getElementById('userProfile').style.display = 'none';
+                document.querySelector('.login-prompt').style.display = 'block';
+            });
+            
+            // Function to show user profile
+            function showUserProfile(user) {
+                const profilePic = document.getElementById('profilePic');
+                const profileUsername = document.getElementById('profileUsername');
+                const profileUserId = document.getElementById('profileUserId');
+                const profileAuthDate = document.getElementById('profileAuthDate');
+                
+                // Set profile data
+                profileUsername.textContent = `${user.first_name || ''} ${user.last_name || ''}`.trim() || user.username;
+                profileUserId.textContent = `ID: ${user.id}`;
+                
+                // Set profile photo
+                if (user.photo_url) {
+                    profilePic.src = user.photo_url;
+                } else {
+                    profilePic.src = 'https://via.placeholder.com/150';
+                }
+                
+                // Set auth date
+                const authDate = new Date();
+                profileAuthDate.textContent = `Member since: ${authDate.toLocaleDateString()}`;
+                
+                // Show profile and hide login prompt
+                document.querySelector('.login-prompt').style.display = 'none';
+                document.getElementById('userProfile').style.display = 'block';
+            }
+            
+            // Function to toggle dark mode
+            function toggleDarkMode() {
+                document.body.classList.toggle('dark-mode');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                    modeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    localStorage.setItem('darkMode', 'disabled');
+                    modeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+            
+            // Initialize liquid position
+            const activeNavItem = document.querySelector('.nav-item.active');
+            if (activeNavItem) {
+                const itemLeft = activeNavItem.offsetLeft;
+                liquid.style.left = `${itemLeft}px`;
+            }
+        });
+    </script>
+</body>
+</html>
